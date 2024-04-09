@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% from 'bootstrap5/form.html' import render_form %}
+
+{% block title %}
+{% if is_edit %}
+Edit Task
+{% else %}
+Add New Task
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8">
+      {% if is_edit %}
+      <h1>Edit task into the database</h1>
+      {% else %}
+      <h1>Add new task into the database</h1>
+      {% endif %}
+
+      {{ render_form(form, button_map={'submit':'primary'}) }}
+
+	  <p class="space-above mt-4"><a href="{{ url_for('home') }}">See all tasks</a></p>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

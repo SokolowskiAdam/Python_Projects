@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}API Documentation{% endblock %}
+
+{% block content %}
+<div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-4">Coffee & Wifi API Documentation</h1>
+    <div class="display-4">
+        <hr class="my-4">
+      <p class="display-6">1. Get all Cafes</p>
+        <p class="lead mb-4">http://127.0.0.1:5000/api/all</p>
+        <p class="display-6">2. Get random Cafe</p>
+        <p class="lead mb-4">http://127.0.0.1:5000/api/random</p>
+        <p class="display-6">3. Search Cafes By Location</p>
+        <p class="lead mb-4">Search with parameter "loc", ex. London:</p>
+        <p class="lead mb-4">http://127.0.0.1:5000/api/search?loc=London</p>
+        <p class="display-6">4. Post new Cafe</p>
+        <p class="lead mb-4">http://127.0.0.1:5000/api/add</p>
+        <p class="lead mb-4">Body of post request:<br>
+            - name - Cafe name<br>
+            - map_url - link to Google Maps<br>
+            - img_url - link to image of Cafe<br>
+            - loc - address of Cafe<br>
+            - sockets - sockets available (true/false)<br>
+            - toilet - toilet available (true/false)<br>
+            - wifi - wifi available (true/false)<br>
+            - calls - taking calls possible (true/false)<br>
+            - seats - number of seats, please choose from: "0-10", "10-20", "20-30", "30-40", "40-50", "50+"<br>
+            - coffee_price - min. coffee price ex. £1.67</p>
+        <p class="display-6">5. Delete Cafe</p>
+        <p class="lead mb-4">Passing correct id of Cafe (ex. 22) and api-key (ex. asdfg) is obligatory to delete cafe:</p>
+        <p class="lead mb-4">http://127.0.0.1:5000/report_closed/22?api-key=asdfg</p>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+      </div>
+    </div>
+  </div>
+{% endblock %}

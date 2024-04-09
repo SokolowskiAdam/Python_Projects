@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block title %}To Do List{% endblock %}
+{% block content %}
+<section class="vh-100" style="background-color: #eee;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-lg-9 col-xl-7">
+        <div class="card rounded-3">
+          <div class="card-body p-4">
+
+            <h4 class="text-center my-3 pb-3">To Do App</h4>
+
+            <form class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2">
+
+
+              <div class="col-12">
+                <a class="btn btn-primary btn-lg mb-3" href="{{ url_for('add_task') }}" role="button">Add new task</a>
+              </div>
+
+            </form>
+
+            <table class="table mb-4">
+              <thead>
+                <tr>
+                  <th scope="col">No.</th>
+                  <th scope="col">Todo item</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Deadline</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+              {% for task in tasks %}
+                <tr>
+                  <th scope="row">{{ loop.index }}</th>
+                  <td>{{ task.task }}</td>
+                  <td>{{ task.status }}</td>
+                  <td>{{ task.deadline }}</td>
+                  <td>
+                    <a href="{{ url_for('delete_task', id=task.id) }}" class="btn btn-danger">Delete</a>
+                    <a href="{{ url_for('edit_task', task_id=task.id) }}" class="btn btn-warning">Edit</a>
+                    <a href="{{ url_for('finish_task', id=task.id) }}" class="btn btn-success ms-1">Finished</a>
+                  </td>
+                </tr>
+              {% endfor %}
+
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
